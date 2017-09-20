@@ -5,10 +5,19 @@
     <link>https://bitsforeveryone.github.io/</link>
     <description>Recent content on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 Sep 2017 14:45:39 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 20 Sep 2017 09:00:35 -0400</lastBuildDate>
     
 	<atom:link href="https://bitsforeveryone.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>All Writeups</title>
+      <link>https://bitsforeveryone.github.io/page/all/</link>
+      <pubDate>Wed, 20 Sep 2017 09:00:35 -0400</pubDate>
+      
+      <guid>https://bitsforeveryone.github.io/page/all/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>About</title>
@@ -29,6 +38,15 @@ Why: For flags and country.</description>
       
       <guid>https://bitsforeveryone.github.io/writeup/csaw_2017/tableez/</guid>
       <description>&lt;h4 id=&#34;csaw-ctf-2017-100-points-reverse-engineering&#34;&gt;CSAW CTF 2017 - 100 points - Reverse Engineering&lt;/h4&gt;</description>
+    </item>
+    
+    <item>
+      <title>no_mo_flo</title>
+      <link>https://bitsforeveryone.github.io/writeup/plaid_2017/no_mo_flo/</link>
+      <pubDate>Sun, 23 Apr 2017 09:36:27 -0400</pubDate>
+      
+      <guid>https://bitsforeveryone.github.io/writeup/plaid_2017/no_mo_flo/</guid>
+      <description>&lt;h3 id=&#34;plaidctf-2017-125-points-reverse-engineering&#34;&gt;PlaidCTF 2017 - 125 points - Reverse Engineering&lt;/h3&gt;</description>
     </item>
     
     <item>
