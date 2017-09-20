@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="BitsForEveryone" />
 
-  <meta name="generator" content="Hugo 0.26" />
+  <meta name="generator" content="Hugo 0.27.1" />
   <link rel="canonical" href="https://bitsforeveryone.github.io/writeup/csaw_2017/tableez/" />
   <link rel="alternate" href="https://bitsforeveryone.github.io/index.xml" type="application/rss+xml" title="BitsForEveryone">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -105,9 +105,11 @@
               <a class="navlinks-parent" href="javascript:void(0)">Writeups</a>
               <div class="navlinks-children">
                 
-                  <a href="/writeup/">all</a>
+                  <a href="/page/all">all</a>
                 
                   <a href="/writeup/csaw_2017/">CSAW 2017</a>
+                
+                  <a href="/writeup/plaid_2017/">Plaid 2017</a>
                 
               </div>
             </li>
@@ -192,7 +194,7 @@
 
 <p>
 <strong>Description - Bobby was talking about tables a bunch, so I made some table stuff. I think this is what he was talking about&hellip;</strong><br />
-<strong>Files: <a href="https://github.com/r0d/Write_Ups/blob/master/CSAW%20CTF%202017/tablEZ/tablez">tablez</a></strong></p>
+<strong>Files: <a href="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/tablez">tablez</a></strong></p>
 
 <p><em>Solved by r0d &amp; stonepresto</em></p>
 
@@ -200,17 +202,17 @@
 
 <p>tablEZ is a fairly straight-forward crackme style challenge.</p>
 
-<p><img src="https://github.com/r0d/Write_Ups/blob/master/CSAW%20CTF%202017/tablEZ/maincheckloop.png" alt="tablez main()" /></p>
+<p><img src="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/maincheckloop.png" alt="tablez main()" /></p>
 
 <p>Booting up IDA, we see a prompt asking for the flag and an fgets whcih recieves the flag. The length of the input is then stored and we enter a loop that iterates through our input string byte by byte and calls get_tbl_entry on each byte. It then overwrites the byte it passed to get_tbl_entry with the return value. So it seems like this function is taking our input and translating it with this function. Looking a little farther, we see that our translated input is compared to a hex string that was passed earlier in the function ([rbp + s2]). So, the key here is to figure out how get_tbl_entry is modifying our input and work backwards from the hex string to recover our flag.</p>
 
 <p>get_tbl_entry turns out to be a fairly small function. We see a loop, and looking at the comparison we see it will execute at most 256 time while looking for a match to our input in the data section at trans_table. Once a match is found, it uses that index to pull out a new value and returns the new value.</p>
 
-<p><img src="https://github.com/r0d/Write_Ups/blob/master/CSAW%20CTF%202017/tablEZ/gettblentry.png" alt="tabelz get_tbl_entry()" /></p>
+<p><img src="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/gettblentry.png" alt="tabelz get_tbl_entry()" /></p>
 
 <p>Looking at trans_table, we see a large array starting with \x01 to and ending at \xFF and a corresponding (random) value associated with each entry. So I think it&rsquo;s safe to assume here that this function is simply taking our input, looking it up in this table, and translating it to a random hex value. Since we already have the hex values it is being compared too, we can simply look those up and find the corresponding plaintext that produces them, which will yield the flag.</p>
 
-<p><img src="https://github.com/r0d/Write_Ups/blob/master/CSAW%20CTF%202017/tablEZ/transtable.png" alt="tabelz Data:trans_table" /></p>
+<p><img src="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/transtable.png" alt="tabelz Data:trans_table" /></p>
 
 <p>In our case, we wrote an IDApython script to perform a reverse lookup, which resulted in the flag.</p>
 

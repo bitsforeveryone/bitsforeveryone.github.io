@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plaid 2017 on BitsForEveryone</title>
+    <link>https://bitsforeveryone.github.io/writeup/plaid_2017/</link>
+    <description>Recent content in Plaid 2017 on BitsForEveryone</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 23 Aug 2017 09:31:02 -0400</lastBuildDate>
+    
+	<atom:link href="https://bitsforeveryone.github.io/writeup/plaid_2017/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
