@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on BitsForEveryone</title>
-    <link>https://www.bitsforeveryone.com/page/</link>
+    <link>http://www.bitsforeveryone.com/page/</link>
     <description>Recent content in Pages on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 20 Sep 2017 09:00:35 -0400</lastBuildDate>
     
-	<atom:link href="https://www.bitsforeveryone.com/page/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.bitsforeveryone.com/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>All Writeups</title>
-      <link>https://www.bitsforeveryone.com/page/all/</link>
+      <link>http://www.bitsforeveryone.com/page/all/</link>
       <pubDate>Wed, 20 Sep 2017 09:00:35 -0400</pubDate>
       
-      <guid>https://www.bitsforeveryone.com/page/all/</guid>
+      <guid>http://www.bitsforeveryone.com/page/all/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://www.bitsforeveryone.com/page/about/</link>
+      <link>http://www.bitsforeveryone.com/page/about/</link>
       <pubDate>Tue, 19 Sep 2017 14:45:39 -0400</pubDate>
       
-      <guid>https://www.bitsforeveryone.com/page/about/</guid>
+      <guid>http://www.bitsforeveryone.com/page/about/</guid>
       <description>Who: We are BitsForEveryone.
 What: We play CTFs.
 These are our writeups and projects.
