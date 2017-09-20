@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BitsForEveryone</title>
+    <link>https://username.github.io/</link>
+    <description>Recent content on BitsForEveryone</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 19 Sep 2017 14:45:39 -0400</lastBuildDate>
+    
+	<atom:link href="https://username.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://username.github.io/page/about/</link>
+      <pubDate>Tue, 19 Sep 2017 14:45:39 -0400</pubDate>
+      
+      <guid>https://username.github.io/page/about/</guid>
+      <description>Who: We are BitsForEveryone.
+What: We play CTFs.
+These are our writeups and projects.
+Why: For flags and country.</description>
+    </item>
+    
+    <item>
+      <title>tableEZ</title>
+      <link>https://username.github.io/writeup/csaw_2017/tableez/</link>
+      <pubDate>Tue, 19 Sep 2017 14:14:20 -0400</pubDate>
+      
+      <guid>https://username.github.io/writeup/csaw_2017/tableez/</guid>
+      <description>&lt;h4 id=&#34;csaw-ctf-2017-100-points-reverse-engineering&#34;&gt;CSAW CTF 2017 - 100 points - Reverse Engineering&lt;/h4&gt;</description>
+    </item>
+    
+    <item>
+      <title>grapefruit</title>
+      <link>https://username.github.io/project/grapefruit/</link>
+      <pubDate>Wed, 31 Aug 2016 14:46:09 -0400</pubDate>
+      
+      <guid>https://username.github.io/project/grapefruit/</guid>
+      <description>&lt;p&gt;&lt;code&gt;grapefruit&lt;/code&gt; is a suite of tools written by a few members of the team for use in
+an Attack-Defend style CTF. The source is available on &lt;a href=&#34;https://github.com/bitsforeveryone/grapefruit&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

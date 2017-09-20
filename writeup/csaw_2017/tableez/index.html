@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>tableEZ</title>
+  <meta property="og:title" content="tableEZ" />
+  <meta name="twitter:title" content="tableEZ" />
+  <meta name="description" content="CSAW CTF 2017 - 100 points - Reverse Engineering">
+  <meta property="og:description" content="CSAW CTF 2017 - 100 points - Reverse Engineering">
+  <meta name="twitter:description" content="CSAW CTF 2017 - 100 points - Reverse Engineering">
+  <meta name="author" content="bfe"/>
+  <link href='https://username.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://username.github.io/img/bfe.png" />
+  <meta name="twitter:image" content="https://username.github.io/img/bfe.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://username.github.io/writeup/csaw_2017/tableez/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BitsForEveryone" />
+
+  <meta name="generator" content="Hugo 0.26" />
+  <link rel="canonical" href="https://username.github.io/writeup/csaw_2017/tableez/" />
+  <link rel="alternate" href="https://username.github.io/index.xml" type="application/rss+xml" title="BitsForEveryone">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://username.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://username.github.io/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://username.github.io/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://username.github.io">BitsForEveryone</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Writeups</a>
+              <div class="navlinks-children">
+                
+                  <a href="/writeup/">all</a>
+                
+                  <a href="/writeup/csaw_2017/">CSAW 2017</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Projects" href="/project/">Projects</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="BitsForEveryone" href="https://username.github.io">
+            <img class="avatar-img" src="https://username.github.io/img/bfe.png" alt="BitsForEveryone" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="writeup-heading">
+              <h1>tableEZ</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h4 id="csaw-ctf-2017-100-points-reverse-engineering">CSAW CTF 2017 - 100 points - Reverse Engineering</h4>
+
+<p>
+<strong>Description - Bobby was talking about tables a bunch, so I made some table stuff. I think this is what he was talking about&hellip;</strong><br />
+<strong>Files: <a href="https://github.com/r0d/Write_Ups/blob/master/CSAW%20CTF%202017/tablEZ/tablez">tablez</a></strong></p>
+
+<p><em>Solved by r0d &amp; stonepresto</em></p>
+
+<hr />
+
+<p>tablEZ is a fairly straight-forward crackme style challenge.</p>
+
+<p><img src="https://github.com/r0d/Write_Ups/blob/master/CSAW%20CTF%202017/tablEZ/maincheckloop.png" alt="tablez main()" /></p>
+
+<p>Booting up IDA, we see a prompt asking for the flag and an fgets whcih recieves the flag. The length of the input is then stored and we enter a loop that iterates through our input string byte by byte and calls get_tbl_entry on each byte. It then overwrites the byte it passed to get_tbl_entry with the return value. So it seems like this function is taking our input and translating it with this function. Looking a little farther, we see that our translated input is compared to a hex string that was passed earlier in the function ([rbp + s2]). So, the key here is to figure out how get_tbl_entry is modifying our input and work backwards from the hex string to recover our flag.</p>
+
+<p>get_tbl_entry turns out to be a fairly small function. We see a loop, and looking at the comparison we see it will execute at most 256 time while looking for a match to our input in the data section at trans_table. Once a match is found, it uses that index to pull out a new value and returns the new value.</p>
+
+<p><img src="https://github.com/r0d/Write_Ups/blob/master/CSAW%20CTF%202017/tablEZ/gettblentry.png" alt="tabelz get_tbl_entry()" /></p>
+
+<p>Looking at trans_table, we see a large array starting with \x01 to and ending at \xFF and a corresponding (random) value associated with each entry. So I think it&rsquo;s safe to assume here that this function is simply taking our input, looking it up in this table, and translating it to a random hex value. Since we already have the hex values it is being compared too, we can simply look those up and find the corresponding plaintext that produces them, which will yield the flag.</p>
+
+<p><img src="https://github.com/r0d/Write_Ups/blob/master/CSAW%20CTF%202017/tablEZ/transtable.png" alt="tabelz Data:trans_table" /></p>
+
+<p>In our case, we wrote an IDApython script to perform a reverse lookup, which resulted in the flag.</p>
+
+<p>Script:</p>
+
+<pre><code class="language-python">from struct import pack  
+loc1 = 0x8BA  
+loc2 = 0x8C4  
+loc3 = 0x8DC  
+loc4 = 0x8E6  
+loc5 = 0x8FE  
+loc6 = 0x908  
+  
+str1 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc1,1))  
+str2 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc2,1))  
+str3 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc3,1))  
+str4 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc4,1))  
+str5 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc5,1))  
+str6 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc6,1))  
+s = (str1 + str2 + str3 + str4 + str5 + str6)  
+flag = &quot;&quot;  
+for char in s:  
+    for i in range(1,512,2):  
+        b = Byte(LocByName(&quot;trans_tbl&quot;)+i)  
+        if(ord(char) == b):  
+            flag += (&quot;%c&quot; %(Byte(LocByName(&quot;trans_tbl&quot;)+i-1)))  
+print(flag)  
+</code></pre>
+
+<p>Output:</p>
+
+<p>flag{t4ble_l00kups_ar3_b3tter_f0r_m3}</p>
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        
+      </ul>
+
+      
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/bitsforeveryone" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://username.github.io/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="bitsforeveryone.com">bfe</a>
+                      
+          
+          
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://username.github.io">BitsForEveryone</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          Built with <a href="http://gohugo.io">Hugo</a>&nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>&nbsp;&bull;&nbsp; Adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://username.github.io/js/main.js"></script>
+<script src="https://username.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="https://username.github.io/js/load-photoswipe.js"></script>
+
+
+
+  </body>
+</html>
+
