@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writeups on BitsForEveryone</title>
-    <link>https://bitsforeveryone.github.io/writeup/</link>
+    <link>https://www.bitsforeveryone.com/writeup/</link>
     <description>Recent content in Writeups on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 19 Sep 2017 14:14:20 -0400</lastBuildDate>
     
-	<atom:link href="https://bitsforeveryone.github.io/writeup/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.bitsforeveryone.com/writeup/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

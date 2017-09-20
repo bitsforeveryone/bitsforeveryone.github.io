@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Plaid 2017 on BitsForEveryone</title>
-    <link>https://bitsforeveryone.github.io/tags/plaid-2017/</link>
+    <link>https://www.bitsforeveryone.com/tags/plaid-2017/</link>
     <description>Recent content in Plaid 2017 on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 23 Apr 2017 09:36:27 -0400</lastBuildDate>
     
-	<atom:link href="https://bitsforeveryone.github.io/tags/plaid-2017/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.bitsforeveryone.com/tags/plaid-2017/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>no_mo_flo</title>
-      <link>https://bitsforeveryone.github.io/writeup/plaid_2017/no_mo_flo/</link>
+      <link>https://www.bitsforeveryone.com/writeup/plaid_2017/no_mo_flo/</link>
       <pubDate>Sun, 23 Apr 2017 09:36:27 -0400</pubDate>
       
-      <guid>https://bitsforeveryone.github.io/writeup/plaid_2017/no_mo_flo/</guid>
+      <guid>https://www.bitsforeveryone.com/writeup/plaid_2017/no_mo_flo/</guid>
       <description>&lt;h3 id=&#34;plaidctf-2017-125-points-reverse-engineering&#34;&gt;PlaidCTF 2017 - 125 points - Reverse Engineering&lt;/h3&gt;</description>
     </item>
     

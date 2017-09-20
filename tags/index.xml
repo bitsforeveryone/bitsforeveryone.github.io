@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on BitsForEveryone</title>
-    <link>https://bitsforeveryone.github.io/tags/</link>
+    <link>https://www.bitsforeveryone.com/tags/</link>
     <description>Recent content in Tags on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 19 Sep 2017 14:14:20 -0400</lastBuildDate>
     
-	<atom:link href="https://bitsforeveryone.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.bitsforeveryone.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Crackme</title>
-      <link>https://bitsforeveryone.github.io/tags/crackme/</link>
+      <link>https://www.bitsforeveryone.com/tags/crackme/</link>
       <pubDate>Tue, 19 Sep 2017 14:14:20 -0400</pubDate>
       
-      <guid>https://bitsforeveryone.github.io/tags/crackme/</guid>
+      <guid>https://www.bitsforeveryone.com/tags/crackme/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Csaw 2017</title>
-      <link>https://bitsforeveryone.github.io/tags/csaw-2017/</link>
+      <link>https://www.bitsforeveryone.com/tags/csaw-2017/</link>
       <pubDate>Tue, 19 Sep 2017 14:14:20 -0400</pubDate>
       
-      <guid>https://bitsforeveryone.github.io/tags/csaw-2017/</guid>
+      <guid>https://www.bitsforeveryone.com/tags/csaw-2017/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Plaid 2017</title>
-      <link>https://bitsforeveryone.github.io/tags/plaid-2017/</link>
+      <link>https://www.bitsforeveryone.com/tags/plaid-2017/</link>
       <pubDate>Sun, 23 Apr 2017 09:36:27 -0400</pubDate>
       
-      <guid>https://bitsforeveryone.github.io/tags/plaid-2017/</guid>
+      <guid>https://www.bitsforeveryone.com/tags/plaid-2017/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reverse Engineering</title>
-      <link>https://bitsforeveryone.github.io/tags/reverse-engineering/</link>
+      <link>https://www.bitsforeveryone.com/tags/reverse-engineering/</link>
       <pubDate>Tue, 19 Sep 2017 14:14:20 -0400</pubDate>
       
-      <guid>https://bitsforeveryone.github.io/tags/reverse-engineering/</guid>
+      <guid>https://www.bitsforeveryone.com/tags/reverse-engineering/</guid>
       <description></description>
     </item>
     
