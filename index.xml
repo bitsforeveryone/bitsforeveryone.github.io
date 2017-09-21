@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BitsForEveryone</title>
-    <link>http://www.bitsforeveryone.com/</link>
+    <link>https://www.bitsforeveryone.com/</link>
     <description>Recent content on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 20 Sep 2017 09:00:35 -0400</lastBuildDate>
     
-	<atom:link href="http://www.bitsforeveryone.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.bitsforeveryone.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>All Writeups</title>
-      <link>http://www.bitsforeveryone.com/page/all/</link>
+      <link>https://www.bitsforeveryone.com/page/all/</link>
       <pubDate>Wed, 20 Sep 2017 09:00:35 -0400</pubDate>
       
-      <guid>http://www.bitsforeveryone.com/page/all/</guid>
+      <guid>https://www.bitsforeveryone.com/page/all/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>http://www.bitsforeveryone.com/page/about/</link>
+      <link>https://www.bitsforeveryone.com/page/about/</link>
       <pubDate>Tue, 19 Sep 2017 14:45:39 -0400</pubDate>
       
-      <guid>http://www.bitsforeveryone.com/page/about/</guid>
+      <guid>https://www.bitsforeveryone.com/page/about/</guid>
       <description>Who: We are BitsForEveryone.
 What: We play CTFs.
 These are our writeups and projects.
@@ -33,28 +33,28 @@ Why: For flags and country.</description>
     
     <item>
       <title>tableEZ</title>
-      <link>http://www.bitsforeveryone.com/writeup/csaw_2017/tableez/</link>
+      <link>https://www.bitsforeveryone.com/writeup/csaw_2017/tableez/</link>
       <pubDate>Tue, 19 Sep 2017 14:14:20 -0400</pubDate>
       
-      <guid>http://www.bitsforeveryone.com/writeup/csaw_2017/tableez/</guid>
+      <guid>https://www.bitsforeveryone.com/writeup/csaw_2017/tableez/</guid>
       <description>&lt;h4 id=&#34;csaw-ctf-2017-100-points-reverse-engineering&#34;&gt;CSAW CTF 2017 - 100 points - Reverse Engineering&lt;/h4&gt;</description>
     </item>
     
     <item>
       <title>no_mo_flo</title>
-      <link>http://www.bitsforeveryone.com/writeup/plaid_2017/no_mo_flo/</link>
+      <link>https://www.bitsforeveryone.com/writeup/plaid_2017/no_mo_flo/</link>
       <pubDate>Sun, 23 Apr 2017 09:36:27 -0400</pubDate>
       
-      <guid>http://www.bitsforeveryone.com/writeup/plaid_2017/no_mo_flo/</guid>
+      <guid>https://www.bitsforeveryone.com/writeup/plaid_2017/no_mo_flo/</guid>
       <description>&lt;h4 id=&#34;plaidctf-2017-125-points-reverse-engineering&#34;&gt;PlaidCTF 2017 - 125 points - Reverse Engineering&lt;/h4&gt;</description>
     </item>
     
     <item>
       <title>grapefruit</title>
-      <link>http://www.bitsforeveryone.com/project/grapefruit/</link>
+      <link>https://www.bitsforeveryone.com/project/grapefruit/</link>
       <pubDate>Wed, 31 Aug 2016 14:46:09 -0400</pubDate>
       
-      <guid>http://www.bitsforeveryone.com/project/grapefruit/</guid>
+      <guid>https://www.bitsforeveryone.com/project/grapefruit/</guid>
       <description>&lt;p&gt;&lt;code&gt;grapefruit&lt;/code&gt; is a suite of tools written by a few members of the team for use in
 an Attack-Defend style CTF. The source is available on &lt;a href=&#34;https://github.com/bitsforeveryone/grapefruit&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 
