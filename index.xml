@@ -5,10 +5,19 @@
     <link>https://www.bitsforeveryone.com/</link>
     <description>Recent content on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 Sep 2017 09:00:35 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 25 Sep 2017 17:11:41 -0400</lastBuildDate>
     
 	<atom:link href="https://www.bitsforeveryone.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Old_but_gold</title>
+      <link>https://www.bitsforeveryone.com/writeup/ekoparty_2017/old_but_gold/</link>
+      <pubDate>Mon, 25 Sep 2017 17:11:41 -0400</pubDate>
+      
+      <guid>https://www.bitsforeveryone.com/writeup/ekoparty_2017/old_but_gold/</guid>
+      <description>&lt;h4 id=&#34;ctf-250-points-misc&#34;&gt;CTF - 250 points - Misc&lt;/h4&gt;</description>
+    </item>
     
     <item>
       <title>All Writeups</title>
