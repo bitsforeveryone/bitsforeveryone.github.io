@@ -5,10 +5,19 @@
     <link>https://www.bitsforeveryone.com/tags/</link>
     <description>Recent content in Tags on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 Sep 2017 14:14:20 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 27 Sep 2017 18:03:59 -0400</lastBuildDate>
     
 	<atom:link href="https://www.bitsforeveryone.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Aw 2017</title>
+      <link>https://www.bitsforeveryone.com/tags/aw-2017/</link>
+      <pubDate>Wed, 27 Sep 2017 18:03:59 -0400</pubDate>
+      
+      <guid>https://www.bitsforeveryone.com/tags/aw-2017/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Crackme</title>
@@ -40,7 +49,7 @@
     <item>
       <title>Reverse Engineering</title>
       <link>https://www.bitsforeveryone.com/tags/reverse-engineering/</link>
-      <pubDate>Tue, 19 Sep 2017 14:14:20 -0400</pubDate>
+      <pubDate>Wed, 27 Sep 2017 18:03:59 -0400</pubDate>
       
       <guid>https://www.bitsforeveryone.com/tags/reverse-engineering/</guid>
       <description></description>

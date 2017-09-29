@@ -5,10 +5,21 @@
     <link>https://www.bitsforeveryone.com/tags/reverse-engineering/</link>
     <description>Recent content in Reverse Engineering on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 Sep 2017 14:14:20 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 27 Sep 2017 18:03:59 -0400</lastBuildDate>
     
 	<atom:link href="https://www.bitsforeveryone.com/tags/reverse-engineering/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Realism</title>
+      <link>https://www.bitsforeveryone.com/writeup/csaw_2017/realism/</link>
+      <pubDate>Wed, 27 Sep 2017 18:03:59 -0400</pubDate>
+      
+      <guid>https://www.bitsforeveryone.com/writeup/csaw_2017/realism/</guid>
+      <description>&lt;h4 id=&#34;csaw-ctf-2017-300-points-reverse-engineering&#34;&gt;CSAW CTF 2017 - 300 points - Reverse Engineering&lt;/h4&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>tableEZ</title>

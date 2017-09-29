@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.bitsforeveryone.com/writeup/csaw_2017/realism/</loc>
+    <lastmod>2017-09-27T18:03:59-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.bitsforeveryone.com/writeup/ekoparty_2017/old_but_gold/</loc>
     <lastmod>2017-09-25T17:11:41-04:00</lastmod>
   </url>
@@ -53,8 +58,14 @@
   </url>
   
   <url>
+    <loc>https://www.bitsforeveryone.com/tags/aw-2017/</loc>
+    <lastmod>2017-09-27T18:03:59-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.bitsforeveryone.com/</loc>
-    <lastmod>2017-09-25T17:11:41-04:00</lastmod>
+    <lastmod>2017-09-27T18:03:59-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -95,13 +106,13 @@
   
   <url>
     <loc>https://www.bitsforeveryone.com/tags/reverse-engineering/</loc>
-    <lastmod>2017-09-19T14:14:20-04:00</lastmod>
+    <lastmod>2017-09-27T18:03:59-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.bitsforeveryone.com/tags/</loc>
-    <lastmod>2017-09-19T14:14:20-04:00</lastmod>
+    <lastmod>2017-09-27T18:03:59-04:00</lastmod>
     <priority>0</priority>
   </url>
   

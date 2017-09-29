@@ -5,23 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>tableEZ</title>
-  <meta property="og:title" content="tableEZ" />
-  <meta name="twitter:title" content="tableEZ" />
-  <meta name="description" content="CSAW CTF 2017 - 100 points - Reverse Engineering">
-  <meta property="og:description" content="CSAW CTF 2017 - 100 points - Reverse Engineering">
-  <meta name="twitter:description" content="CSAW CTF 2017 - 100 points - Reverse Engineering">
+  <title>Aw 2017</title>
+  <meta property="og:title" content="Aw 2017" />
+  <meta name="twitter:title" content="Aw 2017" />
   <meta name="author" content="bfe"/>
   <link href='https://www.bitsforeveryone.com/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://www.bitsforeveryone.com/img/bfe.png" />
   <meta name="twitter:image" content="https://www.bitsforeveryone.com/img/bfe.png" />
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="https://www.bitsforeveryone.com/writeup/csaw_2017/tableez/" />
+  <meta property="og:url" content="https://www.bitsforeveryone.com/tags/aw-2017/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="BitsForEveryone" />
 
   <meta name="generator" content="Hugo 0.27.1" />
-  <link rel="canonical" href="https://www.bitsforeveryone.com/writeup/csaw_2017/tableez/" />
+  <link rel="canonical" href="https://www.bitsforeveryone.com/tags/aw-2017/" />
   <link rel="alternate" href="https://www.bitsforeveryone.com/index.xml" type="application/rss+xml" title="BitsForEveryone">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -159,26 +156,14 @@
 
 
     
-  
-  
-  
-
-
-
-
-  
-
   <header class="header-section ">
-    
     <div class="intro-header no-img">
-      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="writeup-heading">
-              <h1>tableEZ</h1>
-                
-                
+            <div class="page-heading">
+              <h1>#Aw 2017</h1>
+              <hr class="small">
             </div>
           </div>
         </div>
@@ -186,85 +171,49 @@
     </div>
   </header>
 
-
     
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <h4 id="csaw-ctf-2017-100-points-reverse-engineering">CSAW CTF 2017 - 100 points - Reverse Engineering</h4>
-
-<p>
-<strong>Description - Bobby was talking about tables a bunch, so I made some table stuff. I think this is what he was talking about&hellip;</strong><br />
-<strong>Files: <a href="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/tablez">tablez</a></strong></p>
-
-<p><em>Solved by r0d &amp; stonepresto</em></p>
-
-<hr />
-
-<p>tablEZ is a fairly straight-forward crackme style challenge.</p>
-
-<p><img src="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/maincheckloop.png" alt="tablez main()" /></p>
-
-<p>Booting up IDA, we see a prompt asking for the flag and an fgets whcih recieves the flag. The length of the input is then stored and we enter a loop that iterates through our input string byte by byte and calls get_tbl_entry on each byte. It then overwrites the byte it passed to get_tbl_entry with the return value. So it seems like this function is taking our input and translating it with this function. Looking a little farther, we see that our translated input is compared to a hex string that was passed earlier in the function ([rbp + s2]). So, the key here is to figure out how get_tbl_entry is modifying our input and work backwards from the hex string to recover our flag.</p>
-
-<p>get_tbl_entry turns out to be a fairly small function. We see a loop, and looking at the comparison we see it will execute at most 256 time while looking for a match to our input in the data section at trans_table. Once a match is found, it uses that index to pull out a new value and returns the new value.</p>
-
-<p><img src="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/gettblentry.png" alt="tabelz get_tbl_entry()" /></p>
-
-<p>Looking at trans_table, we see a large array starting with \x01 to and ending at \xFF and a corresponding (random) value associated with each entry. So I think it&rsquo;s safe to assume here that this function is simply taking our input, looking it up in this table, and translating it to a random hex value. Since we already have the hex values it is being compared too, we can simply look those up and find the corresponding plaintext that produces them, which will yield the flag.</p>
-
-<p><img src="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/transtable.png" alt="tabelz Data:trans_table" /></p>
-
-<p>In our case, we wrote an IDApython script to perform a reverse lookup, which resulted in the flag.</p>
-
-<p>Script:</p>
-
-<pre><code class="language-python">from struct import pack  
-loc1 = 0x8BA  
-loc2 = 0x8C4  
-loc3 = 0x8DC  
-loc4 = 0x8E6  
-loc5 = 0x8FE  
-loc6 = 0x908  
-  
-str1 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc1,1))  
-str2 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc2,1))  
-str3 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc3,1))  
-str4 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc4,1))  
-str5 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc5,1))  
-str6 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc6,1))  
-s = (str1 + str2 + str3 + str4 + str5 + str6)  
-flag = &quot;&quot;  
-for char in s:  
-    for i in range(1,512,2):  
-        b = Byte(LocByName(&quot;trans_tbl&quot;)+i)  
-        if(ord(char) == b):  
-            flag += (&quot;%c&quot; %(Byte(LocByName(&quot;trans_tbl&quot;)+i-1)))  
-print(flag)  
-</code></pre>
-
-<p>Output:</p>
-
-<p>flag{t4ble_l00kups_ar3_b3tter_f0r_m3}</p>
-      </article>
-
-      <ul class="pager blog-pager">
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
-        
-          <li class="next">
-            <a href="https://www.bitsforeveryone.com/writeup/csaw_2017/realism/" data-toggle="tooltip" data-placement="top" title="Realism">Next Post &rarr;</a>
-          </li>
-        
-      </ul>
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="https://www.bitsforeveryone.com/writeup/csaw_2017/realism/">
+                <h2 class="post-title">Realism</h2>
 
-      
-        
-      
+                
+              </a>
 
+              <p class="post-meta">
+                Posted on 27 September, 2017
+              </p>
+              <div class="post-entry">
+                
+                  <h4 id="csaw-ctf-2017-300-points-reverse-engineering">CSAW CTF 2017 - 300 points - Reverse Engineering</h4>
+
+<p></p>
+                  <a href="https://www.bitsforeveryone.com/writeup/csaw_2017/realism/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.bitsforeveryone.com/tags/aw-2017/">aw 2017</a>&nbsp;
+                  
+                    #<a href="https://www.bitsforeveryone.com/tags/reverse-engineering/">reverse engineering</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+        </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
     <footer>
   <div class="container">

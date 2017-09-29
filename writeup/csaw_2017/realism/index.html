@@ -5,23 +5,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>tableEZ</title>
-  <meta property="og:title" content="tableEZ" />
-  <meta name="twitter:title" content="tableEZ" />
-  <meta name="description" content="CSAW CTF 2017 - 100 points - Reverse Engineering">
-  <meta property="og:description" content="CSAW CTF 2017 - 100 points - Reverse Engineering">
-  <meta name="twitter:description" content="CSAW CTF 2017 - 100 points - Reverse Engineering">
+  <title>Realism</title>
+  <meta property="og:title" content="Realism" />
+  <meta name="twitter:title" content="Realism" />
+  <meta name="description" content="CSAW CTF 2017 - 300 points - Reverse Engineering
+
+">
+  <meta property="og:description" content="CSAW CTF 2017 - 300 points - Reverse Engineering
+
+">
+  <meta name="twitter:description" content="CSAW CTF 2017 - 300 points - Reverse Engineering
+
+">
   <meta name="author" content="bfe"/>
   <link href='https://www.bitsforeveryone.com/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://www.bitsforeveryone.com/img/bfe.png" />
   <meta name="twitter:image" content="https://www.bitsforeveryone.com/img/bfe.png" />
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="https://www.bitsforeveryone.com/writeup/csaw_2017/tableez/" />
+  <meta property="og:url" content="https://www.bitsforeveryone.com/writeup/csaw_2017/realism/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="BitsForEveryone" />
 
   <meta name="generator" content="Hugo 0.27.1" />
-  <link rel="canonical" href="https://www.bitsforeveryone.com/writeup/csaw_2017/tableez/" />
+  <link rel="canonical" href="https://www.bitsforeveryone.com/writeup/csaw_2017/realism/" />
   <link rel="alternate" href="https://www.bitsforeveryone.com/index.xml" type="application/rss+xml" title="BitsForEveryone">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -176,7 +182,7 @@
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="writeup-heading">
-              <h1>tableEZ</h1>
+              <h1>Realism</h1>
                 
                 
             </div>
@@ -192,69 +198,129 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h4 id="csaw-ctf-2017-100-points-reverse-engineering">CSAW CTF 2017 - 100 points - Reverse Engineering</h4>
+        <h4 id="csaw-ctf-2017-300-points-reverse-engineering">CSAW CTF 2017 - 300 points - Reverse Engineering</h4>
 
-<p>
-<strong>Description - Bobby was talking about tables a bunch, so I made some table stuff. I think this is what he was talking about&hellip;</strong><br />
-<strong>Files: <a href="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/tablez">tablez</a></strong></p>
+<p></p>
 
-<p><em>Solved by r0d &amp; stonepresto</em></p>
+<p><strong>Description - Did you know that x86 is really old? I found a really old Master Boot Record that I thought was quite interesting! At least, I think it&rsquo;s really old&hellip;</strong></p>
+
+<p><strong>qemu-system-i386 -drive format=raw,file=main.bin</strong></p>
+
+<p><strong>Files: <a href="https://github.com/bitsforeveryone/write-ups/raw/master/CSAW_CTF_2017/realism/main.bin">main.bin</a></strong></p>
+
+<p><em>Solved by Rebeca, r0d, l0ckbox, vimgod</em></p>
 
 <hr />
 
-<p>tablEZ is a fairly straight-forward crackme style challenge.</p>
+<p>Result of file command in main.bin file:
+main.bin: DOS/MBR boot sector</p>
 
-<p><img src="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/maincheckloop.png" alt="tablez main()" /></p>
+<p>We used IDA to disassemble the program.</p>
 
-<p>Booting up IDA, we see a prompt asking for the flag and an fgets whcih recieves the flag. The length of the input is then stored and we enter a loop that iterates through our input string byte by byte and calls get_tbl_entry on each byte. It then overwrites the byte it passed to get_tbl_entry with the return value. So it seems like this function is taking our input and translating it with this function. Looking a little farther, we see that our translated input is compared to a hex string that was passed earlier in the function ([rbp + s2]). So, the key here is to figure out how get_tbl_entry is modifying our input and work backwards from the hex string to recover our flag.</p>
+<p>The most important part of assembly code is:</p>
 
-<p>get_tbl_entry turns out to be a fairly small function. We see a loop, and looking at the comparison we see it will execute at most 256 time while looking for a match to our input in the data section at trans_table. Once a match is found, it uses that index to pull out a new value and returns the new value.</p>
+<p><img src="https://github.com/bitsforeveryone/write-ups/raw/master/CSAW_CTF_2017/realism/mainloop.png" alt="main_loop()" /></p>
 
-<p><img src="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/gettblentry.png" alt="tabelz get_tbl_entry()" /></p>
+<p>On this part of the code the flag is analyzed.</p>
 
-<p>Looking at trans_table, we see a large array starting with \x01 to and ending at \xFF and a corresponding (random) value associated with each entry. So I think it&rsquo;s safe to assume here that this function is simply taking our input, looking it up in this table, and translating it to a random hex value. Since we already have the hex values it is being compared too, we can simply look those up and find the corresponding plaintext that produces them, which will yield the flag.</p>
+<p>The input is storage in the memory 1234h.
+In the first part of the code, the number in position 1234h is compared with 67616c66h (the word &ldquo;galf&rdquo;).
+Note that numbers are stored in little endian and strings are stored in correct order. Therefore, the characters will appear in the opposite order when used as a number.</p>
 
-<p><img src="https://github.com/r0d/Write_Ups/raw/master/CSAW%20CTF%202017/tablEZ/transtable.png" alt="tabelz Data:trans_table" /></p>
+<p>After removing the first string, the remaining part of the input is moved to the register xmm0, the string in the position 7C00h is moved to the register xmm5 and the input is shuffled.</p>
 
-<p>In our case, we wrote an IDApython script to perform a reverse lookup, which resulted in the flag.</p>
+<p>Next, in 8 iterations we have the input recursively execute each operation:</p>
 
-<p>Script:</p>
+<hr />
 
-<pre><code class="language-python">from struct import pack  
-loc1 = 0x8BA  
-loc2 = 0x8C4  
-loc3 = 0x8DC  
-loc4 = 0x8E6  
-loc5 = 0x8FE  
-loc6 = 0x908  
-  
-str1 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc1,1))  
-str2 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc2,1))  
-str3 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc3,1))  
-str4 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc4,1))  
-str5 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc5,1))  
-str6 = pack(&quot;&lt;Q&quot;,GetOperandValue(loc6,1))  
-s = (str1 + str2 + str3 + str4 + str5 + str6)  
-flag = &quot;&quot;  
-for char in s:  
-    for i in range(1,512,2):  
-        b = Byte(LocByName(&quot;trans_tbl&quot;)+i)  
-        if(ord(char) == b):  
-            flag += (&quot;%c&quot; %(Byte(LocByName(&quot;trans_tbl&quot;)+i-1)))  
-print(flag)  
+<ol>
+<li><p>and with memory in address (si + 7D90h)</p>
+
+<pre><code>is ff ff ff ff ff ff ff ff 00 ff ff ff ff ff ff ff 00 ff ff ff ff ff ff ff 
+
+si start in 8 and is decreased in each operation, so, in the first operation the and will be with the string: 00 ff ff ff ff ff ff ff ff 00 ff ff ff ff ff ff ff ff 
+and the last one will be with the string ff ff ff ff ff ff ff ff 00 ff ff ff ff ff ff ff ff 00
+
+The operation just erase the flag in one of the positions
+</code></pre></li>
+</ol>
+
+<p><a href="https://github.com/bitsforeveryone/write-ups/raw/master/CSAW_CTF_2017/realism/hexdump.png">see memory</a></p>
+
+<ol>
+<li>psadw with the string in xmm5 (see that the result of operation is storage at xmm5, so, that register is changed all operation)</li>
+</ol>
+
+<p><a href="http://x86.renejeschke.de/html/file_module_x86_id_253.html">see psadbw function</a></p>
+
+<hr />
+
+<p>The result of the operation will moved to edx and compared with:</p>
+
+<pre><code>            8f 02 df 02
+            5d 02 90 02
+            21 02 09 02
+            78 02 7b 02
+            33 02 f9 02
+            91 02 5e 02
+            55 02 29 02
+            70 02 11 02
 </code></pre>
 
-<p>Output:</p>
+<p>We can better understand what happens in the shuffle operation using GDB:</p>
 
-<p>flag{t4ble_l00kups_ar3_b3tter_f0r_m3}</p>
+<pre><code>Passing the input flag{abcdefghijklm}, after shuffle, we have: ghijklm}defg{abc
+</code></pre>
+
+<p>We can calculate separately the first 8 characters and the last 8.</p>
+
+<p>First, lets calculate the first part. We will call the characters a, b, c, d, e, f, g, h.</p>
+
+<p>Each iteration gives us one equation with these variables:</p>
+
+<hr />
+
+<pre><code>abs(6fh) + abs(b - 6eh) + abs(c - 74h) + abs(d - 65h) + abs(e - 78h) + abs(f - 74h) + abs(g - 2eh) + abs(h - 28h) = 2dfh
+abs(a - dfh) + abs(2) + c + d + e + f + g + h = 290h
+abs(a - 90h) + abs(b - 2)  d + e + f + g + h = 209h
+abs(a - 09h) + abs(b - 2) + c + e + f + g  + h = 27bh
+abs(a - 7bh) + abs(b - 2) + c + d + f + g  + h = 2f9h
+abs(a - f9h) + abs(b - 2) + c + d + e + g  + h = 25eh
+abs(a - 5eh) + abs(b - 1) + c + d + e + f + h = 229h
+abs(a - 29h) + abs(b - 2) + c + d + e + f + g = 211h
+</code></pre>
+
+<hr />
+
+<p>We know b is a legible character, so, it is greater than 2</p>
+
+<p>We know that the last character is &lsquo;}&rsquo;, so, we can substitute in the equation and eliminate the first equation (we will just need 6 equations)</p>
+
+<p>After that, we have:</p>
+
+<hr />
+
+<p><img src="https://github.com/bitsforeveryone/write-ups/raw/master/CSAW_CTF_2017/realism/mathematica.png" alt="mathematica()" /></p>
+
+<hr />
+
+<p>The result obtained in Mathematica is:</p>
+
+<p>109, 48, 100, 51, 95, 121, 48 = m0d3_y0}</p>
+
+<p>Doing the same thing in the second part we obtain:</p>
+
+<p>alz_{4re</p>
+
+<p>So, the flag is: {4realz_m0d3_y0}</p>
       </article>
 
       <ul class="pager blog-pager">
         
-        
-          <li class="next">
-            <a href="https://www.bitsforeveryone.com/writeup/csaw_2017/realism/" data-toggle="tooltip" data-placement="top" title="Realism">Next Post &rarr;</a>
+          <li class="previous">
+            <a href="https://www.bitsforeveryone.com/writeup/csaw_2017/tableez/" data-toggle="tooltip" data-placement="top" title="tableEZ">&larr; Previous Post</a>
           </li>
+        
         
       </ul>
 
