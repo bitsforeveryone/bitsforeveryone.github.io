@@ -1,85 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>BitsForEveryone</title>
-    <link>https://www.bitsforeveryone.com/</link>
-    <description>Recent content on BitsForEveryone</description>
+    <title>Flags on BitsForEveryone</title>
+    <link>https://www.bitsforeveryone.com/flags/</link>
+    <description>Recent content in Flags on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Sep 2017 18:03:59 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 19 Sep 2017 14:14:20 -0400</lastBuildDate>
     
-	<atom:link href="https://www.bitsforeveryone.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.bitsforeveryone.com/flags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Realism</title>
-      <link>https://www.bitsforeveryone.com/writeup/csaw_2017/realism/</link>
-      <pubDate>Wed, 27 Sep 2017 18:03:59 -0400</pubDate>
-      
-      <guid>https://www.bitsforeveryone.com/writeup/csaw_2017/realism/</guid>
-      <description>&lt;h4 id=&#34;csaw-ctf-2017-300-points-reverse-engineering&#34;&gt;CSAW CTF 2017 - 300 points - Reverse Engineering&lt;/h4&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Old_but_gold</title>
-      <link>https://www.bitsforeveryone.com/writeup/ekoparty_2017/old_but_gold/</link>
-      <pubDate>Mon, 25 Sep 2017 17:11:41 -0400</pubDate>
-      
-      <guid>https://www.bitsforeveryone.com/writeup/ekoparty_2017/old_but_gold/</guid>
-      <description>&lt;h4 id=&#34;ctf-250-points-misc&#34;&gt;CTF - 250 points - Misc&lt;/h4&gt;</description>
-    </item>
-    
-    <item>
-      <title>All Writeups</title>
-      <link>https://www.bitsforeveryone.com/page/all/</link>
-      <pubDate>Wed, 20 Sep 2017 09:00:35 -0400</pubDate>
-      
-      <guid>https://www.bitsforeveryone.com/page/all/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://www.bitsforeveryone.com/page/about/</link>
-      <pubDate>Tue, 19 Sep 2017 14:45:39 -0400</pubDate>
-      
-      <guid>https://www.bitsforeveryone.com/page/about/</guid>
-      <description>Who: We are BitsForEveryone.
-What: We play CTFs.
-These are our writeups and projects.
-Why: For flags and country.</description>
-    </item>
-    
-    <item>
-      <title>tableEZ</title>
-      <link>https://www.bitsforeveryone.com/writeup/csaw_2017/tableez/</link>
-      <pubDate>Tue, 19 Sep 2017 14:14:20 -0400</pubDate>
-      
-      <guid>https://www.bitsforeveryone.com/writeup/csaw_2017/tableez/</guid>
-      <description>&lt;h4 id=&#34;csaw-ctf-2017-100-points-reverse-engineering&#34;&gt;CSAW CTF 2017 - 100 points - Reverse Engineering&lt;/h4&gt;</description>
-    </item>
-    
-    <item>
-      <title>no_mo_flo</title>
-      <link>https://www.bitsforeveryone.com/writeup/plaid_2017/no_mo_flo/</link>
-      <pubDate>Sun, 23 Apr 2017 09:36:27 -0400</pubDate>
-      
-      <guid>https://www.bitsforeveryone.com/writeup/plaid_2017/no_mo_flo/</guid>
-      <description>&lt;h4 id=&#34;plaidctf-2017-125-points-reverse-engineering&#34;&gt;PlaidCTF 2017 - 125 points - Reverse Engineering&lt;/h4&gt;</description>
-    </item>
-    
-    <item>
-      <title>grapefruit</title>
-      <link>https://www.bitsforeveryone.com/project/grapefruit/</link>
-      <pubDate>Wed, 31 Aug 2016 14:46:09 -0400</pubDate>
-      
-      <guid>https://www.bitsforeveryone.com/project/grapefruit/</guid>
-      <description>&lt;p&gt;&lt;code&gt;grapefruit&lt;/code&gt; is a suite of tools written by a few members of the team for use in
-an Attack-Defend style CTF. The source is available on &lt;a href=&#34;https://github.com/bitsforeveryone/grapefruit&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>Flag Level Four</title>
@@ -130,17 +59,6 @@ Flag Two: go_army_cyber_hack_everyonez Wow, you found the second flag. Well done
       <description>What are you doing? You don&amp;rsquo;t follow instructions very well do you.
 Flag Zero: flag_i_found I told you that was not a real flag, but no you had to go and try it out. Well at least you read and sort of followed directions.
 Here is your consolation prize!</description>
-    </item>
-    
-    <item>
-      <title>Poster</title>
-      <link>https://www.bitsforeveryone.com/poster/</link>
-      <pubDate>Thu, 01 Jan 1970 03:13:37 -1337</pubDate>
-      
-      <guid>https://www.bitsforeveryone.com/poster/</guid>
-      <description>Welcome Thanks for your interest in the USMA Cadet Competitive Cyber Team
-Poster Here is our team poster that you maybe saw at CYCON-US or inside of Thayer Hall. If you recovered any flags from the poster, you can use those flags as URLs on this site under the flags directory for more leet hacker points.
-For instance if you found the flag c3t{flag_i_found} then you would go to http://www.</description>
     </item>
     
   </channel>
