@@ -22,15 +22,6 @@
     </item>
     
     <item>
-      <title>Old_but_gold</title>
-      <link>https://www.bitsforeveryone.com/writeup/ekoparty_2017/old_but_gold/</link>
-      <pubDate>Mon, 25 Sep 2017 17:11:41 -0400</pubDate>
-      
-      <guid>https://www.bitsforeveryone.com/writeup/ekoparty_2017/old_but_gold/</guid>
-      <description>&lt;h4 id=&#34;ctf-250-points-misc&#34;&gt;CTF - 250 points - Misc&lt;/h4&gt;</description>
-    </item>
-    
-    <item>
       <title>All Writeups</title>
       <link>https://www.bitsforeveryone.com/page/all/</link>
       <pubDate>Wed, 20 Sep 2017 09:00:35 -0400</pubDate>
@@ -70,6 +61,15 @@ Why: For flags and country.</description>
     </item>
     
     <item>
+      <title>Old_but_gold</title>
+      <link>https://www.bitsforeveryone.com/writeup/ekoparty_2017/old_but_gold/</link>
+      <pubDate>Sun, 30 Oct 2016 17:11:41 -0400</pubDate>
+      
+      <guid>https://www.bitsforeveryone.com/writeup/ekoparty_2017/old_but_gold/</guid>
+      <description>&lt;h4 id=&#34;ekoparty-2016-ctf-250-points-misc&#34;&gt;EKOParty 2016 CTF - 250 points - Misc&lt;/h4&gt;</description>
+    </item>
+    
+    <item>
       <title>grapefruit</title>
       <link>https://www.bitsforeveryone.com/project/grapefruit/</link>
       <pubDate>Wed, 31 Aug 2016 14:46:09 -0400</pubDate>
@@ -88,7 +88,7 @@ an Attack-Defend style CTF. The source is available on &lt;a href=&#34;https://g
       
       <guid>https://www.bitsforeveryone.com/flags/army_hacker_team_got_root/</guid>
       <description>Welcome Thanks for your interest in the USMA Cadet Competitive Cyber Team
-Flag Four army_hacker_team_got_root: Wow, you found the final flag. Well done. In cybersecurity competitions called capture-the-flag, aspring or full fledge hackers attempt to recover strings of characters called flags. These flags represent critical data that is intended to be protected by the system. It could be passwords, credit card numbers, social security numbers, or even the full schematics of a DS-1 Orbital Battle Station.</description>
+Flag Four: army_hacker_team_got_root: Wow, you found the final flag. Well done. In cybersecurity competitions called capture-the-flag, aspring or full fledge hackers attempt to recover strings of characters called flags. These flags represent critical data that is intended to be protected by the system. It could be passwords, credit card numbers, social security numbers, or even the full schematics of a DS-1 Orbital Battle Station.</description>
     </item>
     
     <item>
