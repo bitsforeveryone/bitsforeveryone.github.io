@@ -5,23 +5,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>no_mo_flo</title>
-  <meta property="og:title" content="no_mo_flo" />
-  <meta name="twitter:title" content="no_mo_flo" />
-  <meta name="description" content="PlaidCTF 2017 - 125 points - Reverse Engineering">
-  <meta property="og:description" content="PlaidCTF 2017 - 125 points - Reverse Engineering">
-  <meta name="twitter:description" content="PlaidCTF 2017 - 125 points - Reverse Engineering">
+  <title>RC3 CTF 2017</title>
+  <meta property="og:title" content="RC3 CTF 2017" />
+  <meta name="twitter:title" content="RC3 CTF 2017" />
+  <meta name="description" content="RC3CTF 2017 BitsForEveryone competed in RC3CTF 2017 from November 17-19, 2017. Finishing 12th in the world with 1850 points.
+scoreboard had a sorting issue, there were 3 teams under us with more points
+we actually solved misc 100 before the ctf ended, we just took the screen shot prematurely
+this team was made up of five coaches from the c3t">
+  <meta property="og:description" content="RC3CTF 2017 BitsForEveryone competed in RC3CTF 2017 from November 17-19, 2017. Finishing 12th in the world with 1850 points.
+scoreboard had a sorting issue, there were 3 teams under us with more points
+we actually solved misc 100 before the ctf ended, we just took the screen shot prematurely
+this team was made up of five coaches from the c3t">
+  <meta name="twitter:description" content="RC3CTF 2017 BitsForEveryone competed in RC3CTF 2017 from November 17-19, 2017. Finishing 12th in the world with 1850 points.
+scoreboard had a sorting issue, there were 3 teams under us with more …">
   <meta name="author" content="bfe"/>
   <link href='https://www.bitsforeveryone.com/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://www.bitsforeveryone.com/img/bfe.png" />
   <meta name="twitter:image" content="https://www.bitsforeveryone.com/img/bfe.png" />
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="https://www.bitsforeveryone.com/writeup/plaid_2017/no_mo_flo/" />
+  <meta property="og:url" content="https://www.bitsforeveryone.com/writeup/rc3ctf_2017/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="BitsForEveryone" />
 
   <meta name="generator" content="Hugo 0.30.2" />
-  <link rel="canonical" href="https://www.bitsforeveryone.com/writeup/plaid_2017/no_mo_flo/" />
+  <link rel="canonical" href="https://www.bitsforeveryone.com/writeup/rc3ctf_2017/" />
   <link rel="alternate" href="https://www.bitsforeveryone.com/index.xml" type="application/rss+xml" title="BitsForEveryone">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -161,26 +168,14 @@
 
 
     
-  
-  
-  
-
-
-
-
-  
-
   <header class="header-section ">
-    
     <div class="intro-header no-img">
-      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="writeup-heading">
-              <h1>no_mo_flo</h1>
-                
-                
+            <div class="page-heading">
+              <h1>RC3 CTF 2017</h1>
+              <hr class="small">
             </div>
           </div>
         </div>
@@ -188,62 +183,68 @@
     </div>
   </header>
 
-
     
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <h4 id="plaidctf-2017-125-points-reverse-engineering">PlaidCTF 2017 - 125 points - Reverse Engineering</h4>
-
-<p>
-<strong>Description - Can you go with the flow?</strong><br />
-<strong>Files: <a href="https://github.com/bitsforeveryone/write-ups/raw/master/PlaidCTF-2017/no_mo_flo125/no_flo_f51e2f24345e094cd2080b7b690f69fb">no_flo_f51e2f24345e094cd2080b7b690f69fb</a></strong></p>
-
-<p><em>Solved by r0d &amp; adambomb</em></p>
-
-<hr />
-
-<p>Running the binary we see it immediately expects user input. Anything less than 32 characters gives us a &ldquo;short input&rdquo; response, otherwise we are told  &ldquo;You aint goin with the flow&hellip;.&rdquo;.</p>
-
-<p>Jumping into IDA we see in main() that there is in fact a 32 character read followed by a 16 iteration loop. The loop creates two arrays, one containing the even characters and the other containing the odd characters.</p>
-
-<p>After the arrays are made, a user defined signal is created that jumps to a switch statement. Then the odd array is  passed to a function that presumably checks the characters and returns either a 0 or 1. Looking further down we see that we want the function to return a 1 to pass the first check. Finally, the even array is then passed to a different checking function which we also want to return a 1.</p>
-
-<p><img src="https://github.com/r0d/Write_Ups/raw/master/PlaidCTF-2017/no_mo_flo-125pts/no_flo_main.png" alt="no_flo main()" /></p>
-
-<p>Ok, so lets jump into the first check. We see that it is initializing r8d to 1 and then jumping through 22 different checks on individual characters. Since the array only has 16 characters we know it can&rsquo;t pass all of them. Looking closer, we see it checks some characters multiple times, but it only needs to pass the ones that don&rsquo;t set r8d to 0. Pulling the checked values out and reversing the operations we get the following string:</p>
-
-<p>P*T*{*0*f*0*_*0*l*k*_*h*h*l*_*0*</p>
-
-<p>Taking the flag format into account, we can reasonably assume some of the characters:</p>
-
-<p>PCTF{*0*f*0*_*0*l*k*_*h*h*l*_*0}</p>
-
-<p>So now lets look at the function checking the even array. This is a bit more convoluted. Like the first function, it is stepping through the array looking at some characters multiple times. However, instead of simply checking the character, it throws the previously defined signal which calls the checking function.
-<img src="https://github.com/r0d/Write_Ups/raw/master/PlaidCTF-2017/no_mo_flo-125pts/signal_being_thrown.png" alt="signal being thrown" /></p>
-
-<p>Based on the above string, we know that first two characters should evaluate to C and F respectively. Using GDB, we see that when the first and second item in the array are evaluated under case 5 of the switch statement they are compared against a C and and F. So we step through the entire array and fill in the characters evaluated by case 5 to get the following string:</p>
-
-<p>PCTF{n0_fl0*_*0*l*k*_ah_h3ll_n0}</p>
-
-<p>The remaining characters are evaluated with a case 1 and a case 3. Stepping through one last time we arrive at the flag:</p>
-
-<p>PCTF{n0_fl0?_m0_like_ah_h3ll_n0}</p>
-      </article>
-
-      <ul class="pager blog-pager">
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
-        
-      </ul>
+          <div class="well">
+            
 
-      
-        
-      
+<h2 id="rc3ctf-2017">RC3CTF 2017</h2>
 
+<p>BitsForEveryone competed in RC3CTF 2017 from November 17-19, 2017. Finishing 12th in the world with 1850 points.</p>
+
+<p><img src="https://github.com/bitsforeveryone/write-ups/raw/master/rc3ctf_2017/rc3ctf_scoreboard.png" alt="dashboard" /></p>
+
+<p><em>scoreboard had a sorting issue, there were 3 teams under us with more points</em></p>
+
+<p><img src="https://github.com/bitsforeveryone/write-ups/raw/master/rc3ctf_2017/bfe_solves_rc3ctf-2017.png" alt="score" /></p>
+
+<p><em>we actually solved misc 100 before the ctf ended, we just took the screen shot prematurely</em></p>
+
+<p><em>this team was made up of five coaches from the c3t</em></p>
+
+          </div>
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="https://www.bitsforeveryone.com/writeup/rc3ctf_2017/math_class/">
+                <h2 class="post-title">Math Class</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on 24 November, 2017
+              </p>
+              <div class="post-entry">
+                
+                  <h4 id="rc3-ctf-2017-400-points-crypto">RC3 CTF 2017 - 400 points - Crypto</h4>
+                  <a href="https://www.bitsforeveryone.com/writeup/rc3ctf_2017/math_class/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.bitsforeveryone.com/tags/crypto/">crypto</a>&nbsp;
+                  
+                    #<a href="https://www.bitsforeveryone.com/tags/braille/">braille</a>&nbsp;
+                  
+                    #<a href="https://www.bitsforeveryone.com/tags/rc3ctf/">rc3ctf</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+        </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
     <footer>
   <div class="container">

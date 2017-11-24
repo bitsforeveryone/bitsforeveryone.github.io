@@ -5,10 +5,19 @@
     <link>https://www.bitsforeveryone.com/</link>
     <description>Recent content on BitsForEveryone</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Sep 2017 18:03:59 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 24 Nov 2017 08:17:37 -0500</lastBuildDate>
     
 	<atom:link href="https://www.bitsforeveryone.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Math Class</title>
+      <link>https://www.bitsforeveryone.com/writeup/rc3ctf_2017/math_class/</link>
+      <pubDate>Fri, 24 Nov 2017 08:17:37 -0500</pubDate>
+      
+      <guid>https://www.bitsforeveryone.com/writeup/rc3ctf_2017/math_class/</guid>
+      <description>&lt;h4 id=&#34;rc3-ctf-2017-400-points-crypto&#34;&gt;RC3 CTF 2017 - 400 points - Crypto&lt;/h4&gt;</description>
+    </item>
     
     <item>
       <title>Realism</title>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Math Class</title>
+  <meta property="og:title" content="Math Class" />
+  <meta name="twitter:title" content="Math Class" />
+  <meta name="description" content="RC3 CTF 2017 - 400 points - Crypto">
+  <meta property="og:description" content="RC3 CTF 2017 - 400 points - Crypto">
+  <meta name="twitter:description" content="RC3 CTF 2017 - 400 points - Crypto">
+  <meta name="author" content="bfe"/>
+  <link href='https://www.bitsforeveryone.com/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://www.bitsforeveryone.com/img/bfe.png" />
+  <meta name="twitter:image" content="https://www.bitsforeveryone.com/img/bfe.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.bitsforeveryone.com/writeup/rc3ctf_2017/math_class/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BitsForEveryone" />
+
+  <meta name="generator" content="Hugo 0.30.2" />
+  <link rel="canonical" href="https://www.bitsforeveryone.com/writeup/rc3ctf_2017/math_class/" />
+  <link rel="alternate" href="https://www.bitsforeveryone.com/index.xml" type="application/rss+xml" title="BitsForEveryone">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.bitsforeveryone.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://www.bitsforeveryone.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://www.bitsforeveryone.com/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.bitsforeveryone.com/">BitsForEveryone</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Writeups</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/all">all</a>
+                
+                  <a href="/writeup/csaw_2017/">CSAW 2017</a>
+                
+                  <a href="/writeup/ekoparty_2017/">EKO Party CTF 2016</a>
+                
+                  <a href="/writeup/plaid_2017/">Plaid 2017</a>
+                
+                  <a href="/writeup/rc3ctf_2017/">RC3 CTF 2017</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Projects" href="/project/">Projects</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="BitsForEveryone" href="https://www.bitsforeveryone.com/">
+            <img class="avatar-img" src="https://www.bitsforeveryone.com/img/bfe.png" alt="BitsForEveryone" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="writeup-heading">
+              <h1>Math Class</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h4 id="rc3-ctf-2017-400-points-crypto">RC3 CTF 2017 - 400 points - Crypto</h4>
+
+<p>
+<strong>Description - Part 4 of 5 in Classroom Crypto Series</strong></p>
+
+<p><strong>Files: <a href="https://github.com/bitsforeveryone/write-ups/raw/master/rc3ctf_2017/crypto400/Math_class.pdf">Math_class.pdf</a></strong></p>
+
+<p><em>Solved by madeye</em></p>
+
+<hr />
+
+<h4 id="cross-posted-at-http-wclaymoody-com">Cross-posted at <a href="http://wclaymoody.com">http://wclaymoody.com</a></h4>
+
+<p>Though we did not get the 400 points for this problem since I finally solved it 20 minutes after the end of the competition, I want to post a writeup since it was very cool.</p>
+
+<p>This problem was worth 400 points and was the 4th in a series of classroom or school themed problems in the crypto category. English class, Science Class, History Class, Math Class and finally Report Card were the series of five challenges, worth 100,200,300,400 and 500 points. We did successfully solve Science and History for those 500 points.</p>
+
+<p><img src="http://wclaymoody.com/assets/images/rc3ctf2017/math_class.png" alt="math_problems" /></p>
+
+<h2 id="the-realization">The realization</h2>
+
+<p>So when I first looked at this I noticed that the second math problem was incorrect. But I did not think much of it. Around mid day on Saturday of the CTF, the admin&rsquo;s posted some hints to many of the problems. The hint to this problems said <em>you must be BLIND not to see the pattern</em>. When I saw they hint, I went back to the problem and told my teammate &ldquo;It&rsquo;s Braille!, I got this!&rdquo;</p>
+
+<p>Each summation problem is two digits wide and three digits tall. Just like a Braille character. The only question was which numbers were raised dots and which were flat dots. The numbers can be partioned many different ways, and my first instinct was even and odds. The text at the top of the PDF confirmed this. <em>you can&rsquo;t see the errors even though they are right in front of you.</em> My first hypothesis was even was a raised dot. Time to repurpose my braille library for this challenge.</p>
+
+<p>Since my Braille Library uses lowercase <code>o</code> for raised and <code>.</code> for flat, I needed to convert the math expressions to this. Luckily the PDF was highlightable and I just copy and pasted the numbers into a text file and cleaned it up by removing the <code>+</code> and spacing them evenly. Below is those digits.</p>
+
+<pre><code>42 54 66 24 29 32 21
+29 21 15 53 13 46 24
+71 57 84 69 51 85 37
+
+22 36 24 64 29 41 05
+52 27 29 27 36 02 17
+53 77 71 77 43 25 37
+
+29 10 45 22 02 34 42
+43 21 38 27 50 25 41
+59 27 61 57 57 73 99
+
+42 45 41 38 49 62 25
+29 27 33 27 34 18 32
+89 81 62 61 69 63 53
+
+22 65 27 22 41 26 52
+23 16 44 14 18 48 43
+59 85 63 23 79 97 81
+</code></pre>
+
+<h2 id="the-implementation">The implementation</h2>
+
+<p>Saving those numbers above as <code>numbers.txt</code>, I was able to use the following python snippet to build my Braille representation of the math problems.</p>
+
+<pre><code class="language-python"># coding: utf-8
+with open('numbers.txt') as f:
+    data = f.read()
+
+for c in &quot;02468&quot;:
+    data = data.replace(c, &quot;o&quot;)
+
+for c in &quot;13579&quot;:
+    data = data.replace(c, &quot;.&quot;)
+</code></pre>
+
+<p>Which gave me the following:</p>
+
+<pre><code>
+oo .o oo oo o. .o o.
+o. o. .. .. .. oo oo
+.. .. oo o. .. o. ..
+
+oo .o oo oo o. o. o.
+.o o. o. o. .o oo ..
+.. .. .. .. o. o. ..
+
+o. .o o. oo oo .o oo
+o. o. .o o. .o o. o.
+.. o. o. .. .. .. ..
+
+oo o. o. .o o. oo o.
+o. o. .. o. .o .o .o
+o. o. oo o. o. o. ..
+
+oo o. o. oo o. oo .o
+o. .o oo .o .o oo o.
+.. o. o. o. .. .. o.
+</code></pre>
+
+<p>Now to see what is the Braille message. Using the <code>solve()</code> function from my Stevie N Ray code (below), I got what I thought was a flag in: <code>fixmathdifforabsofdifplusonefornegs</code>. Little did I know, that this was only the first of three messages I would need to solve to get the final answer.</p>
+
+<pre><code class="language-python">
+from string import lowercase
+
+letterdots = [[1,],[1,2], [1,4], [1,4,5], [1,5], [1,2,4], [1,2,4,5], [1,2,5],
+        [2,4], [2,4,5], [1,3], [1,2,3], [1,3,4], [1,3,4,5], [1,3,5],[1,2,3,4],
+        [1,2,3,4,5], [1,2,3,5], [2,3,4], [2,3,4,5], [1,3,6], [1,2,3,6],
+        [2,4,5,6], [1,3,4,6], [1,3,4,5,6], [1,3,5,6]]
+
+def d2l(dotlist):
+    if dotlist in letterdots:
+        return lowercase[letterdots.index(dotlist)]
+    else: return &quot;&amp;&quot;
+
+def d2i(dotlist):
+    ind = (lowercase.index(d2l(dotlist)) + 1) % 10
+    return digits[ind]
+
+def solve(data):
+    for linecount, line in enumerate(data.split('\n')):
+        print linecount, line
+        if len(line)==0: continue
+        line = line.strip()
+        if linecount == 0:
+            letters = []
+            for pairs in line.strip().split(' '):
+                letters.append([])
+
+        lettercount = len(letters)
+        for i, pairs in enumerate(line.split(' ')):
+            if len(pairs) == 0: continue
+            for j, column in enumerate(pairs):
+                if len(column) == 0: continue
+                if j==0 and column == 'o':
+                    letters[i].append(linecount+1 )
+                if j==1 and column == 'o':
+                    letters[i].append(linecount + 4)
+
+        if linecount == 2:
+            message = ''
+            i = 0
+            while i &lt; len(letters):
+                letter = sorted(letters[i])
+                if letter == shift:
+                    nextletter = sorted(letters[i+1])
+                    message += d2l(nextletter).upper()
+                    i += 2
+                elif letter == numbersign:
+                    nextletter = sorted(letters[i+1])
+                    message += d2i(nextletter)
+                    i += 2
+                else:
+                    message += d2l(letter)
+                    i += 1
+            return message
+</code></pre>
+
+<p>Like I said, I intially thought this was the flag. I tried submitting it as is, with spaces, with underscores, and finally with dashes. After confirming with a mod on IRC, I knew the phrase was a hint to going forward. Breaking down the message into individual words and thinking about the flow, I had this.</p>
+
+<pre><code>Fix math. Diff or abs of dif plus one for negs
+</code></pre>
+
+<h2 id="the-correction">The correction</h2>
+
+<p>So most of the math problems looked to be incorrect. So this instruction was telling me to fix the math. Then to look the difference between the given answer and the correct result. If the difference was negative, take the absolute value of the difference and add one. This seems easy, but what to do with the result. My first guess was more Braille, replace the answer with the difference or absolute value plus one. This seemed like a stretch that such a message could have been created from only changing the last line. I was stuck on this for a while, adjusting my code to redo the Braille. But finally, I just stopped and looked at these new values. I had two difference sets of values depending if I subtracted the correction from the given values or the other way around. Here is the code I used to compute this two different sets of numbers.</p>
+
+<pre><code class="language-python">from string import lowercase
+import re
+
+patt_str = ((&quot;(\d{2}).?&quot; * 7) + &quot;\n&quot;) * 3
+
+print patt_str
+
+patt = re.compile(patt_str)
+
+with open('numbers.txt') as f:
+    data = f.read()
+
+match = patt.findall(data)
+
+option1 = []
+option2 = []
+
+for m in match:
+    for i in range(7):
+        a, b, c = [int(x) for x in (m[i], m[i+7], m[i+14])]
+        d = c - (a+b)
+        if d &lt;= 0: d = abs(d) + 1
+        option1.append(d)
+        e = (a+b) - c
+        if e &lt;= 0: e = abs(e) + 1
+        option2.append(e)
+</code></pre>
+
+<p>Those sets of numbers all are from the range of 1 to 26.</p>
+
+<pre><code>[1, 19, 3, 9, 9, 7, 9, 22, 14, 18, 15, 23, 19, 15, 14, 5, 23, 8, 5, 14, 
+    16, 18, 9, 13, 5, 15, 18, 5, 14, 4, 9, 14, 20, 23, 15]
+
+[1, 18, 4, 8, 10, 8, 8, 21, 15, 19, 14, 22, 18, 16, 13, 4, 22, 9, 6, 15, 
+    17, 19, 10, 12, 4, 14, 17, 4, 15, 5, 8, 13, 21, 24, 14]
+</code></pre>
+
+<p>I was stuck on this for a while cause like a computer scientist I was stuck on zero-indexed
+arrays. Realizing that the value 0 was not possibly (thep problem says 0 is negative), I moved on.
+Finally, using them as an index in to the alphabet with this code:</p>
+
+<pre><code class="language-python">print &quot;&quot;.join(lowercase[o-1] for o in option1)
+print &quot;&quot;.join(lowercase[o-1] for o in option2)
+</code></pre>
+
+<p>results in the following two messages:</p>
+
+<p><code>asciigivnrowsonewhenprimeorendintwo</code></p>
+
+<p><code>ardhjhhuosnvrpmdvifoqsjldnqdoehmuxn</code></p>
+
+<h2 id="one-last-step">One last step</h2>
+
+<p>The first message is obviously the next step. It tells us to create ASCII characters from the given rows. Using a 1 when the number is prime or ends in 2. Going back to the original data with the following code we can recover the flag.</p>
+
+<pre><code class="language-python">primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31,
+            37, 41, 43, 47, 53, 59, 61, 67,
+            71, 73, 79, 83, 89, 97]
+
+def bitstream(letter):
+    bs = &quot;&quot;
+    for b in letter:
+        bs += &quot;1&quot; if (int(b) in primes or int(b)%10==2) else &quot;0&quot;
+    return bs
+
+flag = &quot;&quot;
+
+for m in match:
+    letters = [m[i:i+7] for i in range(0, len(m), 7)]
+    for letter in letters:
+        flag += chr(int(&quot;&quot;.join(bitstream(letter)),2))
+print flag
+</code></pre>
+
+<p>That gives the message of:
+<code>FLAGSUMARRAYMAN</code></p>
+
+<p>I never got to submit the flag, so don&rsquo;t know the exact flag, but that is definately the end.</p>
+
+<h2 id="full-solve">Full solve</h2>
+
+<p>The full code can be found here:</p>
+
+<p><a href="http://wclaymoody.com/assets/ctffiles/rc3ctf2017/math_class_400_solve.py.txt">Math Class(400)</a></p>
+
+<h4 id="thanks-to-rc3-for-a-great-challenge-and-fun-ctf-also-thanks-to-my-teammates-tr0gd0r-archang3l-phlint-and-goshawk">Thanks to RC3 for a great challenge and fun CTF. Also, thanks to my teammates tr0gd0r, archang3l, phlint and goshawk</h4>
+
+<p><em>Constant Vigilance</em></p>
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        
+      </ul>
+
+      
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/bitsforeveryone" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://www.bitsforeveryone.com/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://www.bitsforeveryone.com">bfe</a>
+                      
+          
+          
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.bitsforeveryone.com/">BitsForEveryone</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          Built with <a href="http://gohugo.io">Hugo</a>&nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>&nbsp;&bull;&nbsp; Adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://www.bitsforeveryone.com/js/main.js"></script>
+<script src="https://www.bitsforeveryone.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="https://www.bitsforeveryone.com/js/load-photoswipe.js"></script>
+
+
+
+  </body>
+</html>
+
